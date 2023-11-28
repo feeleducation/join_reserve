@@ -67,8 +67,49 @@ $(document).ready(function () {
     const liffId = "2001003810-E87Xmvlr"; //LIFF IDを入力
     console.log(`init liff, ID : ${liffId}`);
     initializeLiff(liffId);
+    
+    canAccept();
 })
 
+const http = new XMLHttpRequest();
+http.onreadystatechange = function() {
+    switch ( http.readyState ) {
+        case 0:
+            // 未初期化状態.
+            console.log( 'uninitialized!' );
+            break;
+        case 1: // データ送信中.
+            console.log( 'loading...' );
+            break;
+        case 2: // 応答待ち.
+            console.log( 'loaded.' );
+            break;
+        case 3: // データ受信中.
+            console.log( 'interactive... '+http.responseText.length+' bytes.' );
+            break;
+        case 4: // データ受信完了.
+            if( http.status == 200 || http.status == 304 ) {
+                var data = http.responseText; // responseXML もあり
+                console.log( 'COMPLETE! :'+data );
+                if(Number(data) == 0){
+                    window.alert("今回の理科実験教室は申込者数が定員に達したため、参加申込を終了しました。申し訳ありません。\n次回以降の参加をお待ちしております。\nご質問等がありましたら、LINEのチャットにてお願いします。");
+                    liff.closeWindow();
+                    return value;
+                }
+            } else {
+                console.log( 'Failed. HttpStatus: '+http.statusText );
+            }
+            break;
+    }
+};
+
+function canAccept () {
+    // const http = new XMLHttpRequest();
+    const url = "https://script.google.com/macros/s/AKfycbx6RYOc4u0qmIEiGofYfwd1dfqNkxFEUj60vj-pzN5wvJiTJtH-ZAo0ZIQqrQ-u__y4FA/exec"; //  + "?name=" + eventName;
+    http.open("GET", url);
+    http.responseType = "text";
+    http.send();
+}
 
 function initializeLiff(liffId) {
     liff
