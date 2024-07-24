@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>F.E.E.L.理科実験教室参加申込フォーム</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: #F7F7F7;
+        }
+
+        h2 {
+            padding: 0.25em 0.5em;
+            color: #494949;
+            background: transparent;
+            border-left: solid 5px #7db4e6;
+        }
+    </style>
+
+    <div class="m-2">
+        <h2 class="py-1">F.E.E.L.理科実験教室<br>参加申込フォーム</h2>
+        <hr>
+        <p>
+            日時：2024年2月24日(土)10:00～12:00<br>
+            場所：糸島スタートアップガレージ<br>
+            　（糸島市前原中央2-13-3）<br>
+            内容：建物の秘密について学ぼう！<br>
+            対象：小学生<br>
+            定員：10人（先着）<br>
+            参加費：1人500円<br>
+            募集締切：2月23日(金・祝)または申込者数が定員に達するまで<br>
+            　（定員に満たない場合のみ事前予約なしで参加可能）<br>
+        </p>
+        <hr>
+        <form novalidate>
+            <div class="mb-3" style="display:none">
+                <label for="date" class="form-label">参加される理科実験教室・日程 【必須】</label>
+                <select class="form-select" id="date" name="date" aria-describedby="date-invalid" required>
+                    <!--<option selected value="">選択してください</option>-->
+                    <option selected value="2/24(土)10:00~建物の秘密について学ぼう！">2/24(土)10:00~建物の秘密について学ぼう！</option>
+                </select>
+                <div class="invalid-feedback" id="date-invalid">
+                    参加を希望する日程を選択してください。
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="parent-name" class="form-label">保護者様の氏名 【必須】</label>
+                <input type="text" class="form-control" id="parent-name" name="parent-name" autocomplete="name"
+                    placeholder="九大　花子" aria-describedby="parent-name-invalid" required>
+                <div class="invalid-feedback" id="parent-name-invalid">
+                    保護者様の氏名を入力してください。
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">お子様の学年・氏名 【1人目は必須】</label>
+                <div class="row mb-1">
+                    <div class="col-auto">
+                        <label class="form-label">　</label>
+                    </div>
+                    <div class="col">
+                        <label class="form-label">学年を選択</label>
+                    </div>
+                    <div class="col-7">
+                        <label class="form-label">氏名</label>
+                    </div>  
+                </div> 
+                <div class="mb-1">
+                    <div class="row">
+                        <div class="col-auto">
+                            <label for="grade1" class="form-label form-control-plaintext">1</label>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" id="grade1" name="grade1" aria-describedby="grade-name-help grade1-invalid" required>
+                                <option selected value="">学年を選択</option>
+                                <!-- <option value="未就学">未就学</option> -->
+                                <option value="1年">1年</option>
+                                <option value="2年">2年</option>
+                                <option value="3年">3年</option>
+                                <option value="4年">4年</option>
+                                <option value="5年">5年</option>
+                                <option value="6年">6年</option>
+                            </select>
+                            <div class="invalid-feedback" id="grade1-invalid">
+                                1人目のお子様の学年を入力してください。
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <input type="text" class="form-control" id="name1" name="name1" placeholder="" aria-describedby="grade-name-help name1-invalid" required>
+                            <div class="invalid-feedback" id="name1-invalid">
+                                1人目のお子様の氏名を入力してください。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <div class="row">
+                        <div class="col-auto">
+                            <label for="grade2" class="form-label col-auto form-control-plaintext">2</label>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" id="grade2" name="grade2" aria-describedby="grade-name-help grade2-invalid" oninput="childRequired(this, 'name2');">
+                                <option selected value="">学年を選択</option>
+                                <!-- <option value="未就学">未就学</option> -->
+                                <option value="1年">1年</option>
+                                <option value="2年">2年</option>
+                                <option value="3年">3年</option>
+                                <option value="4年">4年</option>
+                                <option value="5年">5年</option>
+                                <option value="6年">6年</option>
+                            </select>
+                            <div class="invalid-feedback" id="grade2-invalid">
+                                2人目のお子様の学年を入力してください。氏名のみの入力はできません。
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <input type="text" class="form-control" id="name2" name="name2" aria-describedby="grade-name-help name2-invalid" oninput="childRequired(this, 'grade2');" placeholder="">
+                            <div class="invalid-feedback" id="name2-invalid">
+                                2人目のお子様の氏名を入力してください。学年のみの入力はできません。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <div class="row">
+                        <div class="col-auto">
+                            <label for="grade3" class="form-label col-auto form-control-plaintext">3</label>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" id="grade3" name="grade3" aria-describedby="grade-name-help grade3-invalid" oninput="childRequired(this, 'name3');">
+                                <option selected value="">学年を選択</option>
+                                <!-- <option value="未就学">未就学</option> -->
+                                <option value="1年">1年</option>
+                                <option value="2年">2年</option>
+                                <option value="3年">3年</option>
+                                <option value="4年">4年</option>
+                                <option value="5年">5年</option>
+                                <option value="6年">6年</option>
+                            </select>
+                            <div class="invalid-feedback" id="grade3-invalid">
+                                3人目のお子様の学年を入力してください。氏名のみの入力はできません。
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <input type="text" class="form-control" id="name3" name="name3" aria-describedby="grade-name-help name3-invalid" oninput="childRequired(this, 'grade3');" placeholder="">
+                            <div class="invalid-feedback" id="name3-invalid">
+                                3人目のお子様の氏名を入力してください。学年のみの入力はできません。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-1">
+                    <div class="row">
+                        <div class="col-auto">
+                            <label for="grade4" class="form-label col-auto form-control-plaintext">4</label>
+                        </div>
+                        <div class="col">
+                            <select class="form-select" id="grade4" name="grade4" aria-describedby="grade-name-help grade4-invalid" oninput="childRequired(this, 'name4');">
+                                <option selected value="">学年を選択</option>
+                                <!-- <option value="未就学">未就学</option> -->
+                                <option value="1年">1年</option>
+                                <option value="2年">2年</option>
+                                <option value="3年">3年</option>
+                                <option value="4年">4年</option>
+                                <option value="5年">5年</option>
+                                <option value="6年">6年</option>
+                            </select>
+                            <div class="invalid-feedback" id="grade4-invalid">
+                                4人目のお子様の学年を入力してください。氏名のみの入力はできません。
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <input type="text" class="form-control" id="name4" name="name4" aria-describedby="grade-name-help name4-invalid" oninput="childRequired(this, 'grade4');" placeholder="">
+                            <div class="invalid-feedback" id="name4-invalid">
+                                4人目のお子様の氏名を入力してください。学年のみの入力はできません。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="grade-name-help" class="form-text">参加されるお子様が5人以上の場合は、お手数ですが複数回に分けて送信してください。</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">写真使用の承諾 【必須】</label>
+                <div id="photo-consent-help" class="form-text mb-2">
+                    理科実験教室中に写真を撮影し、顔を隠したうえでF.E.E.L.の広報で使用する場合があります。ご了承ください。</div>
+                <input type="checkbox" class="form-check-input" id="photo-consent" name="photo-consent"
+                    aria-describedby="photo-consent-help photo-consent-invalid" required>
+                <label class="form-check-label" for="photo-consent">承諾する</label>
+                <div class="invalid-feedback" id="photo-consent-invalid">
+                    「承諾する」を選択してください。
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="remarks" class="form-label">備考</label>
+                <textarea class="form-control" id="remarks" name="remarks" rows="3"
+                    aria-describedby="remarks-help"></textarea>
+                <div id="remarks-help" class="form-text">ご質問、ご連絡事項（途中参加、途中退出の希望など）がありましたらご入力ください。</div>
+            </div>
+            <button type="submit" class="btn btn-primary">送信する</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
