@@ -91,11 +91,11 @@ http.onreadystatechange = function() {
             if( http.status == 200 || http.status == 304 ) {
                 var data = http.responseText; // responseXML もあり
                 console.log( 'COMPLETE! :'+data );
-                // if(Number(data) == 0){
-                //     window.alert("今回の理科実験教室は申込者数が定員に達したため、参加申込を終了しました。申し訳ありません。\n次回以降の参加をお待ちしております。\nご質問等がありましたら、LINEのチャットにてお願いします。");
-                //     liff.closeWindow();
-                //     return value;
-                // }
+                if(Number(data) == 0){
+                    window.alert("今回の理科実験教室は申込者数が定員に達したため、参加申込を終了しました。申し訳ありません。\n次回以降の参加をお待ちしております。\nご質問等がありましたら、LINEのチャットにてお願いします。");
+                    liff.closeWindow();
+                    return value;
+                }
             } else {
                 console.log( 'Failed. HttpStatus: '+http.statusText );
             }
