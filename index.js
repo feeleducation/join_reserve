@@ -105,7 +105,7 @@ http.onreadystatechange = function() {
 
 function canAccept () {
     // const http = new XMLHttpRequest();
-    const url = "https://script.google.com/macros/s/AKfycbzY0auvFxnNB_fld3ENhstcKo_RvUOaL24LIjdbQwS59RgG6fT-mBvBkIKCFFt-yObM4g/exec";//  + "?name=" + eventName; イベントで書き換え必要
+    const url = "https://script.google.com/macros/s/AKfycbwBqh5Xf6NyUL7cJdDqHDRkUYStpKe-c10t4Wb5dX0H5fqy3ggeJc3XQjqhTSUbbjtNfw/exec";//  + "?name=" + eventName; イベントで書き換え必要
     http.open("GET", url);
     http.responseType = "text";
     http.send();
