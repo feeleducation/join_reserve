@@ -64,7 +64,7 @@ const key = params.get('key');
 
 
 $(document).ready(function () {
-    const liffId = "2005901176-7naRRXkN"; //LIFF IDを入力
+    const liffId = "2006385593-3oE7aZWO"; //LIFF IDを入力
     console.log(`init liff, ID : ${liffId}`);
     initializeLiff(liffId);
     
