@@ -64,7 +64,7 @@ const key = params.get('key');
 
 
 $(document).ready(function () {
-    const liffId = "2006385593-3oE7aZWO"; //LIFF IDを入力
+    const liffId = "2006385593-XDemBjWa"; //LIFF IDを入力
     console.log(`init liff, ID : ${liffId}`);
     initializeLiff(liffId);
     
@@ -105,7 +105,7 @@ http.onreadystatechange = function() {
 
 function canAccept () {
     // const http = new XMLHttpRequest();
-    const url = "https://script.google.com/macros/s/AKfycbwBqh5Xf6NyUL7cJdDqHDRkUYStpKe-c10t4Wb5dX0H5fqy3ggeJc3XQjqhTSUbbjtNfw/exec";//  + "?name=" + eventName; イベントで書き換え必要
+    const url = "https://script.google.com/macros/s/AKfycbyQkAcL1SdGm6DjxBh7FbCCIpT8NGcpAr-AZBGs2oPnwyVhjbJLrX7_ocEKuxLBjONkDA/exec";//  + "?name=" + eventName; イベントで書き換え必要
     http.open("GET", url);
     http.responseType = "text";
     http.send();
